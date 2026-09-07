@@ -1,0 +1,32 @@
+FROM node:22-bookworm-slim AS build
+
+WORKDIR /app
+
+COPY --from=oven/bun:1 /usr/local/bin/bun /usr/local/bin/bun
+
+COPY package.json bun.lock .npmrc ./
+RUN bun install --frozen-lockfile
+
+COPY . .
+RUN bun run build
+
+FROM node:22-bookworm-slim
+
+# Coolify's healthcheck shells out to curl (then wget); the slim image has neither
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends curl \
+  && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+ENV NODE_ENV=production \
+  ADDRESS_HEADER=cf-connecting-ip \
+  PROTOCOL_HEADER=x-forwarded-proto \
+  HOST_HEADER=host \
+  ORIGIN=https://haelp.dev
+
+COPY --from=build /app/build ./build
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/package.json ./package.json
+
+EXPOSE 3000
+CMD ["node", "build"]
