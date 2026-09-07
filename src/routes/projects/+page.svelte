@@ -24,7 +24,7 @@
       >
         Projects
       </h1>
-      <p class="max-w-[35rem] text-[13px] leading-[1.95] text-dim">
+      <p class="max-w-[35rem] text-[14.5px] leading-[1.95] text-dim">
         {projectCount} things worth keeping, grouped by what they are rather than when I made them. Some
         are closed for now; a few of those will open up. Where there&rsquo;s no link, there&rsquo;s no
         public source yet.
@@ -48,7 +48,7 @@
           >
             {project.name}
           </h3>
-          <p class="grow text-[11.5px] leading-[1.65] text-dim">{project.blurb}</p>
+          <p class="grow text-[13px] leading-[1.65] text-dim">{project.blurb}</p>
           <span class="shrink-0 label text-faint md:w-[11.875rem] md:text-right"
             >{project.tech}</span
           >
@@ -74,7 +74,7 @@
   <section class="pt-16 pb-14">
     <div class="flex flex-col gap-8 border-t border-rule pt-11 md:flex-row md:gap-16">
       <h2 class="shrink-0 pt-1 label text-fainter md:w-[13.5rem]">Not listed</h2>
-      <p class="max-w-[35rem] text-[11.5px] leading-[1.8] text-faint">
+      <p class="max-w-[35rem] text-[13px] leading-[1.8] text-faint">
         Around 180 more repositories exist, most of them from high school and most of them not worth
         your time. Team projects I contributed to but didn&rsquo;t write are credited to the people
         who did.

@@ -28,7 +28,7 @@
     >
       {site.name}
     </h1>
-    <p class="mt-5 max-w-[29rem] text-[13px] leading-[1.85] text-dim">
+    <p class="mt-5 max-w-[29rem] text-[14.5px] leading-[1.85] text-dim">
       {site.role}.<br />
       I build embedded systems, maintain open-source packages, develop software to serve the communities
       I'm a part of.
@@ -62,10 +62,10 @@
       </div>
 
       <div class="flex max-w-[35rem] flex-col gap-5">
-        <p class="text-[13px] leading-[1.95] text-ink-2">
+        <p class="text-[14.5px] leading-[1.95] text-ink-2">
           I'm a first-year CS student at Illinois from Lexington, Massachusetts.
         </p>
-        <p class="text-[13px] leading-[1.95] text-dim">
+        <p class="text-[14.5px] leading-[1.95] text-dim">
           <!-- Most of what I build starts with wanting to know how something works. I reverse-engineered
 					TETR.IO's protocol and rebuilt its client from scratch, which turned into a library other
 					people now depend on. Then the harder question underneath it got interesting — what the
@@ -77,7 +77,7 @@
           you can learn to speak their language. The things I make are what close this gap between the
           modern internet and everyday people.
         </p>
-        <p class="text-[13px] leading-[1.95] text-dim">
+        <p class="text-[14.5px] leading-[1.95] text-dim">
           I also have a deep love for robotics and writing embedded software. I spent four years on
           a VEX robotics team, and what I loved was that the code had to survive contact with a real
           robot in a dynamic environment. Embedded programming deals with the imperfect world in a
@@ -90,7 +90,7 @@
         <h2 class="label text-fainter">Currently</h2>
         <ul class="flex flex-col gap-3.5">
           {#each currently as item (item.org)}
-            <li class="text-[11.5px] leading-relaxed text-ink-2">
+            <li class="text-[13px] leading-relaxed text-ink-2">
               {item.org}<br /><span class="text-faint">{item.what}</span>
             </li>
           {/each}
@@ -118,7 +118,7 @@
           <h3 class="font-display text-2xl font-medium tracking-[-0.015em] text-ink">
             {project.name}
           </h3>
-          <p class="text-[12px] leading-[1.7] text-dim">{project.blurb}</p>
+          <p class="text-[13.5px] leading-[1.7] text-dim">{project.blurb}</p>
           {#if project.stats}
             <dl class="flex flex-wrap gap-x-5 gap-y-1 pt-1">
               {#each project.stats as stat (stat)}
@@ -153,7 +153,7 @@
       <h2 class="shrink-0 pt-1 label text-fainter md:w-[13.5rem]">What went wrong</h2>
       <div class="flex max-w-[35rem] flex-col gap-3 border-l-2 border-accent pl-5">
         <span class="label text-accent">Placeholder — copy pending</span>
-        <p class="text-[13px] leading-[1.95] text-faint">
+        <p class="text-[14.5px] leading-[1.95] text-faint">
           A short account of a project that didn&rsquo;t work and what it cost to find out.
         </p>
       </div>
@@ -166,12 +166,12 @@
       <h2 class="shrink-0 pt-1 label text-fainter md:w-[13.5rem]">Beyond code</h2>
       <div class="flex max-w-[40rem] flex-col gap-4">
         {#each beyond as item (item.lead)}
-          <p class="text-[12px] leading-[1.7] text-dim">
+          <p class="text-[13.5px] leading-[1.7] text-dim">
             <span class="text-ink-2">{item.lead}</span>
             {item.rest}
           </p>
         {/each}
-        <p class="pt-1.5 text-[12px] leading-[1.7] text-faint">
+        <p class="pt-1.5 text-[13.5px] leading-[1.7] text-faint">
           For fun: Long-distance biking, hiking the White Mountains, and currently Sichuan and
           Mexican cooking.
         </p>
