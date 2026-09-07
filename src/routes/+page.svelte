@@ -29,14 +29,18 @@
 			{site.name}
 		</h1>
 		<p class="mt-5 max-w-[29rem] text-[13.5px] leading-[1.85] text-dim">
-			{site.role}.<br />I build systems software and I'm moving toward embedded: the part of the
-			field that has to survive contact with something physical.
+			{site.role}.<br />
+			I build embedded systems, maintain open-source packages, develop software to serve the communities
+			I'm a part of.
 		</p>
 	</div>
 
 	<div class="shell relative z-10 flex items-center justify-between pb-6 md:pb-7">
-		<span class="label text-fainter">{site.from} &nbsp;&rarr;&nbsp; {site.location}</span>
-		<span class="hidden label text-fainter sm:block">Grainger &middot; CS 2030</span>
+		<!-- <span class="label text-fainter">{site.from} &nbsp;&rarr;&nbsp; {site.location}</span> -->
+		<span class="hidden label text-fainter sm:block"
+			>University of Illinois Urbana Champaign &middot; Grainger School of Engineering &middot;
+			Computer Science &middot; 2030</span
+		>
 	</div>
 </section>
 
@@ -59,20 +63,26 @@
 
 			<div class="flex max-w-[35rem] flex-col gap-5">
 				<p class="text-[13.5px] leading-[1.95] text-ink-2">
-					I&rsquo;m a first-year CS student at Illinois, out of Lexington, Massachusetts.
+					I'm a first-year CS student at Illinois from Lexington, Massachusetts.
 				</p>
 				<p class="text-[13.5px] leading-[1.95] text-dim">
-					Most of what I build starts with wanting to know how something works. I reverse-engineered
-					TETR.IO's protocol and rebuilt its client from scratch, which turned into a library
-					other people now depend on. Then the harder question underneath it got interesting — what
-					the best available move actually is — and I&rsquo;ve rewritten a search engine three times
-					looking for the answer.
+					<!-- Most of what I build starts with wanting to know how something works. I reverse-engineered
+					TETR.IO's protocol and rebuilt its client from scratch, which turned into a library other
+					people now depend on. Then the harder question underneath it got interesting — what the
+					best available move actually is — and I&rsquo;ve rewritten a search engine three times
+					looking for the answer. -->
+					Everything I build starts with a single question: <u>"What if there was a better way?"</u> There
+					is an enormous amount of data in the world that is presented in a way that is inconvenient to
+					access and difficult to understand. Hundreds of systems are open for automation, but only if
+					you can learn to speak their language. The things I make are what close this gap between the
+					modern internet and everyday people.
 				</p>
 				<p class="text-[13.5px] leading-[1.95] text-dim">
-					I spent four years on VEX robotics, and what I liked was that the code had to survive
-					contact with a real robot in a dynamic environment. Embedded programming deals with the imperfect world in a way
-					the rest of CS doesn't. Sensors lie, motor stall, batteries sag. I'd rather work on that
-					than on problems that stay solved.
+					I also have a deep love for robotics and writing embedded software. I spent four years on
+					a VEX robotics team, and what I loved was that the code had to survive contact with a real
+					robot in a dynamic environment. Embedded programming deals with the imperfect world in a
+					way the rest of CS doesn't. Sensors lie, motor stall, and batteries sag. I'd rather work on
+					that than on problems that stay solved.
 				</p>
 			</div>
 
@@ -119,7 +129,7 @@
 				</div>
 
 				<div class="flex shrink-0 flex-col gap-2 md:w-[11.5rem] md:text-right">
-					<span class="label text-faint whitespace-nowrap">{project.tech}</span>
+					<span class="label whitespace-nowrap text-faint">{project.tech}</span>
 					{#if project.live}
 						<a {...external(project.live)} class="label text-dim no-underline hover:text-accent">
 							Live &nearr;

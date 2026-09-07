@@ -23,33 +23,19 @@ export const groups: Group[] = [
 			{
 				name: 'MochBot',
 				blurb:
-					'A bot people train against. Luke and I have been building it for two years — engine in Rust and C++, dashboard and match plumbing in TypeScript.',
-				tech: 'Rust · C++ · TypeScript',
+					'A versus Tetris bot people train against.',
+				tech: 'C++ · TypeScript',
 				href: null,
-				stats: ['~10,000 friends', '~1,300 weekly active', '~6,000 games/day'],
+				stats: ['+20,000 players reached', '~1,300 weekly active users', '~6,000 games/day'],
 				featured: 1,
-				live: 'https://ch.tetr.io/u/mochbot'
+				live: 'https://us.posthog.com/shared/DiMu37UmgBfqhBXzv6_PNatYYp0aGA'
 			},
 			{
-				name: 'falcon',
+				name: 'Falcon',
 				blurb:
 					'A search engine for tetromino stackers. Rust, three rewrites, each one faster than the last.',
 				tech: 'Rust',
 				href: 'https://github.com/halp1/falcon-2'
-			},
-			{
-				name: 'fusion',
-				blurb:
-					'Replay-coaching engine — move generation, search, evaluation, and the pipeline that trains it.',
-				tech: 'Rust',
-				href: 'https://github.com/MochBot/fusion'
-			},
-			{
-				name: 'mimic',
-				blurb:
-					"A timing model that makes a bot's keystrokes look like a person's. Trained on real replays.",
-				tech: 'TypeScript · Rust',
-				href: null
 			},
 			{
 				name: 'Mosaic',
@@ -66,7 +52,8 @@ export const groups: Group[] = [
 			{
 				name: 'Triangle',
 				blurb:
-					"I reverse-engineered the TETR.IO protocol and wrote a headless client for it. It's the only open-source one, and most third-party tooling for the game is built on it.",
+					// "I reverse-engineered the TETR.IO protocol and wrote a headless client for it. It's the only open-source one, and most third-party tooling for the game is built on it.",
+					'A fuly headless and reverse-engineered client for the game TETR.IO. Originally built to power MochBot, but now, most third-party tooling for the game uses this library.',
 				tech: 'TypeScript',
 				href: 'https://github.com/halp1/triangle',
 				stats: ['33 stars', '200+ downloads/week', '@haelp/teto'],

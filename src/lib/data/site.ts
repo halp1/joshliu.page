@@ -17,9 +17,9 @@ export const site = {
 } as const;
 
 export const currently = [
-	{ org: 'Illini Electric Motorsports', what: 'Formula SAE firmware' },
-	{ org: 'iRobotics', what: 'Micromouse' },
-	{ org: 'falcon', what: 'Fourth rewrite of the engine' }
+	{ org: 'Illini Electric Motorsports', what: 'Formula SAE HIL firmware and integration' },
+	{ org: 'iRobotics', what: 'Micromouse pathfinding and localization development' },
+	{ org: 'MochBot', what: 'Human movement replication neural network' }
 ];
 
 export const beyond = [
@@ -33,7 +33,7 @@ export const beyond = [
 	},
 	{
 		lead: 'VEX summer camps',
-		rest: "— Ran them for middle schoolers and raised the team's yearly budget, so cost wasn't what kept anyone off it."
+		rest: "— I ran camps for middle schoolers and raised my team's yearly budget, so cost was never a barrier for learning robotics."
 	},
 	{
 		lead: 'VEX Massachusetts State Champions, 2026',
