@@ -3,5 +3,5 @@
  * attributes out, so a new outbound link can't quietly miss `rel`.
  */
 export function external(href: string) {
-	return { href, target: '_blank', rel: 'noopener noreferrer' } as const;
+  return { href, target: "_blank", rel: "noopener noreferrer" } as const;
 }
