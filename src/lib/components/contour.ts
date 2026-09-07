@@ -7,6 +7,7 @@
  * Kept free of DOM wiring so it can be exercised headlessly in a test.
  */
 
+/** Fallback line colour, used when the caller does not resolve one from CSS. */
 const INK = "237,234,228";
 
 /** World units between grid samples. Shortest feature wavelength is ~2.03. */
@@ -27,6 +28,8 @@ export interface ContourOptions {
   lag?: number;
   /** Screen pixels each contour level lifts by. */
   elevation?: number;
+  /** Line colour as an "r,g,b" triple. Themed, so the caller resolves it. */
+  ink?: string;
 }
 
 export class ContourField {
@@ -51,11 +54,13 @@ export class ContourField {
   intensity: number;
   lag: number;
   elevation: number;
+  ink: string;
 
   constructor(opts: ContourOptions = {}) {
     this.intensity = opts.intensity ?? 0.6;
     this.lag = opts.lag ?? 0.6;
     this.elevation = opts.elevation ?? 21;
+    this.ink = opts.ink ?? INK;
   }
 
   /**
@@ -216,7 +221,7 @@ export class ContourField {
       });
       ctx.lineWidth = index ? 1.25 : 1;
       const a = (index ? 0.13 : 0.062) * this.intensity;
-      ctx.strokeStyle = `rgba(${INK},${a.toFixed(4)})`;
+      ctx.strokeStyle = `rgba(${this.ink},${a.toFixed(4)})`;
       ctx.stroke();
     }
   }

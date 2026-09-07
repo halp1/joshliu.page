@@ -25,7 +25,7 @@
         Projects
       </h1>
       <p class="max-w-[35rem] text-[14.5px] leading-[1.95] text-dim">
-        {projectCount} things worth keeping, grouped by what they are rather than when I made them. Some
+        {projectCount} projects worth keeping. grouped by what they are rather than when I made them. Some
         are closed for now; a few of those will open up. Where there&rsquo;s no link, there&rsquo;s no
         public source yet.
       </p>

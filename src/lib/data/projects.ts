@@ -6,6 +6,11 @@ export type Project = {
   href: string | null;
   /** The running thing, where one is reachable. Verified 2026-09-06. */
   live?: string;
+  /** The package details, if it's a library. */
+  package?: {
+    name: string;
+    link: string;
+  };
   stats?: string[];
   /** Position on the home page, 1–4. Absent means projects page only. */
   featured?: number;
@@ -22,11 +27,12 @@ export const groups: Group[] = [
     projects: [
       {
         name: "MochBot",
-        blurb: "A versus Tetris bot people train against.",
+        blurb:
+          "A versus Tetris bot people train against. The strongest and most popular Tetris engine ever created to date.",
         tech: "C++ · TypeScript",
         href: null,
         stats: ["+20,000 players reached", "~1,300 weekly active users", "~6,000 games/day"],
-        featured: 1,
+        featured: 2,
         live: "https://us.posthog.com/shared/DiMu37UmgBfqhBXzv6_PNatYYp0aGA"
       },
       {
@@ -49,15 +55,18 @@ export const groups: Group[] = [
     name: "Libraries",
     projects: [
       {
-        name: "Triangle",
+        name: "Triangle.js",
         blurb:
-          // "I reverse-engineered the TETR.IO protocol and wrote a headless client for it. It's the only open-source one, and most third-party tooling for the game is built on it.",
-          "A fuly headless and reverse-engineered client for the game TETR.IO. Originally built to power MochBot, but now, most third-party tooling for the game uses this library.",
+          "A fully headless and reverse-engineered client for the game TETR.IO. Originally built to power MochBot, but now, most third-party tooling for the game uses this library.",
         tech: "TypeScript",
         href: "https://github.com/halp1/triangle",
-        stats: ["33 stars", "200+ downloads/week", "@haelp/teto"],
-        featured: 2,
-        live: "https://triangle.haelp.dev"
+        stats: ["33 stars", "200+ downloads/week"],
+        featured: 1,
+        live: "https://triangle.haelp.dev",
+        package: {
+          name: "NPM",
+          link: "https://www.npmjs.com/package/@haelp/teto"
+        }
       },
       {
         name: "@haelp/auth",
@@ -79,9 +88,10 @@ export const groups: Group[] = [
       {
         name: "push-back",
         blurb:
-          "Rust on a VEX V5 brain. My own motion library, Monte Carlo localization for working out where the robot actually is, and a Svelte debugger that reads telemetry off it over a protocol I wrote down.",
+          "Pioneered Rust in the VEX V5RC robotics competition. Features fully custom asynchronous motion library and a hyper-optimized Monte Carlo Localization implementation.",
         tech: "Rust · vexide",
         href: "https://github.com/halp1/push-back",
+        stats: ["World Record: Autonomous Win Points"],
         featured: 4
       },
       {
@@ -122,6 +132,7 @@ export const groups: Group[] = [
           "UIUC publishes its dining menus with unreliable allergen data. I scraped the system it's generated from and built a better app that you can trust when your life is at stake.",
         tech: "SvelteKit · Docker",
         href: "https://github.com/halp1/uieats",
+				stats: ["10+ life-threatening incidents avoided"],
         featured: 3,
         live: "https://uieats.haelp.dev"
       },

@@ -3,6 +3,7 @@
   import favicon from "$lib/assets/favicon.svg";
   import { page } from "$app/state";
   import { site } from "$lib/data/site";
+  import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 
   let { children } = $props();
 
@@ -26,20 +27,23 @@
         <span class="block size-1.5 bg-accent"></span>
         {site.name}
       </a>
-      <nav class="flex gap-7">
-        {#each nav as item (item.href)}
-          <a
-            href={item.href}
-            class="label no-underline transition-colors hover:text-ink {page.url.pathname ===
-            item.href
-              ? 'text-ink'
-              : 'text-faint'}"
-            aria-current={page.url.pathname === item.href ? "page" : undefined}
-          >
-            {item.label}
-          </a>
-        {/each}
-      </nav>
+      <div class="flex items-center gap-7">
+        <nav class="flex gap-7">
+          {#each nav as item (item.href)}
+            <a
+              href={item.href}
+              class="label no-underline transition-colors hover:text-ink {page.url.pathname ===
+              item.href
+                ? 'text-ink'
+                : 'text-faint'}"
+              aria-current={page.url.pathname === item.href ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          {/each}
+        </nav>
+        <ThemeToggle />
+      </div>
     </div>
   </header>
 

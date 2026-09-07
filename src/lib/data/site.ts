@@ -40,3 +40,13 @@ export const beyond = [
     rest: "· USACO Silver · PicoCTF 2023–2025"
   }
 ];
+
+/** The failure story. One project, what it cost to find out, where it stands. */
+export const wentWrong = {
+  project: "flamewall",
+  tech: "Swift",
+  paragraphs: [
+    "I tried to develop an application for macOS that allowed you to track network usage and configure app-level Wi-Fi access restrictions. Unfortunately, as I found out after building part of the app, restricting network access on macOS is only possible with a paid Apple Developer account.",
+    "If I ever get one, this is something I'll definitely take another stab at. Until then, it's a reminder to read the entitlements before writing a feature."
+  ]
+};

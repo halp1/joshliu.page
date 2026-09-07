@@ -1,23 +1,42 @@
 @import "tailwindcss";
 
+/*
+ * Two palettes, one declaration each. `light-dark()` picks a side from the used
+ * `color-scheme`, which is switched below — so no token is written twice and
+ * the whole theme hangs off one attribute on <html>.
+ *
+ * The pairs are contrast-matched: every token sits at the same ratio against
+ * its own ground in both themes (ink 15.3:1, ink-2 10.8:1, dim 8.0:1,
+ * faint 5.8:1, fainter 4.7:1), so the hierarchy survives the switch.
+ */
 @theme {
-  --color-ground: #131417;
-  --color-raised: #191a1e;
-  --color-rule: #31333a;
-  --color-ink: #edeae4;
-  --color-ink-2: #c9c6c0;
-  --color-dim: #aeaba5;
-  --color-faint: #92908c;
-  --color-fainter: #82807b;
-  --color-accent: #ff4d1f;
+  --color-ground: light-dark(#f7f5f1, #131417);
+  --color-raised: light-dark(#fdfcf9, #191a1e);
+  --color-rule: light-dark(#cfcdc9, #31333a);
+  --color-ink: light-dark(#1f1e1c, #edeae4);
+  --color-ink-2: light-dark(#393835, #c9c6c0);
+  --color-dim: light-dark(#4d4b47, #aeaba5);
+  --color-faint: light-dark(#62605b, #92908c);
+  --color-fainter: light-dark(#706e69, #82807b);
+  /* The orange has to deepen on paper: #ff4d1f is only 3.05:1 there, which the
+     11px labels would fail. #c9380c keeps the hue and reaches 4.76:1. */
+  --color-accent: light-dark(#c9380c, #ff4d1f);
 
   --font-display: "Space Grotesk", "Helvetica Neue", Helvetica, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-/* The terrain fills each strip with the page background to occlude what is
-   behind it, so this value and --color-ground must stay identical. */
+/* No attribute means follow the device. The attribute is written pre-paint from
+   localStorage by the inline script in app.html, so there is no flash. */
 :root {
+  color-scheme: light dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
   color-scheme: dark;
 }
 
@@ -53,6 +72,16 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Stroke takes light-dark() like any other colour, so the theme toggle can pick
+   its icon without JavaScript — and therefore without a hydration flash. */
+@utility only-when-light {
+  stroke: light-dark(currentColor, transparent);
+}
+
+@utility only-when-dark {
+  stroke: light-dark(transparent, currentColor);
 }
 
 @utility label {

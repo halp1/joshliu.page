@@ -1,6 +1,6 @@
 <script lang="ts">
   import Terrain from "$lib/components/Terrain.svelte";
-  import { site, currently, beyond } from "$lib/data/site";
+  import { site, currently, beyond, wentWrong } from "$lib/data/site";
   import { featured } from "$lib/data/projects";
   import { external } from "$lib";
 </script>
@@ -78,11 +78,12 @@
           modern internet and everyday people.
         </p>
         <p class="text-[14.5px] leading-[1.95] text-dim">
-          I also have a deep love for robotics and writing embedded software. I spent four years on
-          a VEX robotics team, and what I loved was that the code had to survive contact with a real
-          robot in a dynamic environment. Embedded programming deals with the imperfect world in a
-          way the rest of CS doesn't. Sensors lie, motor stall, and batteries sag. That's what makes
-          embedded special: there's improvement and innovation. There's always a better way.
+          I also have a deep passion for robotics and writing embedded software. I spent four years
+          on a VEX robotics team, and what I loved was that the code had to survive contact with a
+          real robot in a dynamic environment. Embedded programming deals with the imperfect world
+          in a way the rest of CS doesn't. Sensors lie, motor stall, and batteries sag. That's what
+          makes embedded special: there's always room for improvement and innovation. There's always
+          a better way.
         </p>
       </div>
 
@@ -142,23 +143,34 @@
           {:else}
             <span class="label text-fainter">Source private</span>
           {/if}
+          {#if project.package}
+            <a
+              {...external(project.package.link)}
+              class="label text-dim no-underline hover:text-accent"
+            >
+              {project.package.name} &nearr;
+            </a>
+          {/if}
         </div>
       </article>
     {/each}
   </section>
 
-  <!-- Failure story: placeholder until the copy lands -->
-  <section class="mt-10 border-t border-rule py-16">
+  <!-- Failure story -->
+  <!-- <section class="mt-10 border-t border-rule py-16">
     <div class="flex flex-col gap-8 md:flex-row md:gap-16">
       <h2 class="shrink-0 pt-1 label text-fainter md:w-[13.5rem]">What went wrong</h2>
-      <div class="flex max-w-[35rem] flex-col gap-3 border-l-2 border-accent pl-5">
-        <span class="label text-accent">Placeholder — copy pending</span>
-        <p class="text-[14.5px] leading-[1.95] text-faint">
-          A short account of a project that didn&rsquo;t work and what it cost to find out.
-        </p>
+      <div class="flex max-w-[35rem] flex-col gap-4">
+        <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          <span class="label text-accent">{wentWrong.project}</span>
+          <span class="label text-faint">{wentWrong.tech}</span>
+        </div>
+        {#each wentWrong.paragraphs as para (para)}
+          <p class="text-[14.5px] leading-[1.95] text-dim">{para}</p>
+        {/each}
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Beyond code -->
   <section class="border-t border-rule py-16">
