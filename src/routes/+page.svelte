@@ -81,8 +81,8 @@
           I also have a deep love for robotics and writing embedded software. I spent four years on
           a VEX robotics team, and what I loved was that the code had to survive contact with a real
           robot in a dynamic environment. Embedded programming deals with the imperfect world in a
-          way the rest of CS doesn't. Sensors lie, motor stall, and batteries sag. I'd rather work
-          on that than on problems that stay solved.
+          way the rest of CS doesn't. Sensors lie, motor stall, and batteries sag. That's what makes
+          embedded special: there's improvement and innovation. There's always a better way.
         </p>
       </div>
 
