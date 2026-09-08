@@ -54,7 +54,7 @@
     <div class="flex flex-col gap-12 md:flex-row md:gap-16">
       <div class="flex shrink-0 flex-col gap-6">
         <img
-          src="/joshua.jpeg"
+          src="/joshua.png"
           alt="Joshua Liu"
           width="200"
           height="200"
