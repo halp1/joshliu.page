@@ -1,9 +1,12 @@
 <script lang="ts">
   import { site } from "$lib/data/site";
-  import { groups, projectCount } from "$lib/data/projects";
+  import { groups, projectCount, type Project } from "$lib/data/projects";
+  import DemoDialog from "$lib/components/DemoDialog.svelte";
   import { external } from "$lib";
 
   const title = `Projects — ${site.name}`;
+  let demoOf = $state<Project | null>(null);
+
   const description = `${projectCount} projects by Joshua Liu: engines, libraries, robotics, products and infrastructure.`;
 </script>
 
@@ -25,9 +28,9 @@
         Projects
       </h1>
       <p class="max-w-[35rem] text-[14.5px] leading-[1.95] text-dim">
-        {projectCount} projects worth keeping. grouped by what they are rather than when I made them. Some
-        are closed for now; a few of those will open up. Where there&rsquo;s no link, there&rsquo;s no
-        public source yet.
+        {projectCount} projects worth keeping, grouped by what they are rather than when I made them.
+        The starred ones are where I&rsquo;d start. Some are closed for now; a few of those will open
+        up, and where there&rsquo;s no link there&rsquo;s no public source yet.
       </p>
     </div>
   </section>
@@ -43,27 +46,75 @@
         <article
           class="flex flex-col gap-2 border-t border-rule py-4 md:flex-row md:items-baseline md:gap-7"
         >
+          <!-- pl-5 is unconditional so names stay aligned whether or not a row is starred -->
           <h3
-            class="shrink-0 font-display text-[17px] font-medium tracking-[-0.008em] text-ink md:w-[10.75rem]"
+            class="relative shrink-0 pl-5 font-display text-[17px] font-medium tracking-[-0.008em] text-ink md:w-[11.5rem]"
           >
+            {#if project.standout}
+              <svg
+                class="absolute top-[0.42em] left-0 text-accent"
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                role="img"
+                aria-label="Pick"
+              >
+                <path
+                  d="M12 2.4l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.4l-5.88 3.09 1.12-6.55L2.48 9.3l6.58-.96z"
+                />
+              </svg>
+            {/if}
             {project.name}
           </h3>
-          <p class="grow text-[13px] leading-[1.65] text-dim">{project.blurb}</p>
-          <span class="shrink-0 label text-faint md:w-[11.875rem] md:text-right"
-            >{project.tech}</span
-          >
-          <span class="flex shrink-0 gap-4 md:w-[8.5rem] md:justify-end">
+          <div class="flex grow flex-col items-start gap-2.5">
+            <p class="text-[13px] leading-[1.65] text-dim">{project.blurb}</p>
+            {#if project.demo}
+              <button
+                type="button"
+                onclick={() => (demoOf = project)}
+                class="flex cursor-pointer items-center gap-2 border-0 bg-transparent p-0 label text-accent transition-opacity hover:opacity-70"
+              >
+                <svg
+                  width="9"
+                  height="9"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M6 3.5l14 8.5-14 8.5z" />
+                </svg>
+                See it in action
+              </button>
+            {/if}
+          </div>
+          <span class="shrink-0 label text-faint md:w-[14rem] md:text-right">{project.tech}</span>
+          <span class="flex shrink-0 flex-col gap-2 md:w-[6rem] md:items-end">
             {#if project.live}
-              <a {...external(project.live)} class="label text-dim no-underline hover:text-accent">
+              <a
+                {...external(project.live)}
+                class="label whitespace-nowrap text-dim no-underline hover:text-accent"
+              >
                 Live &nearr;
               </a>
             {/if}
             {#if project.href}
-              <a {...external(project.href)} class="label text-dim no-underline hover:text-accent">
+              <a
+                {...external(project.href)}
+                class="label whitespace-nowrap text-dim no-underline hover:text-accent"
+              >
                 Source &nearr;
               </a>
-            {:else if !project.live}
-              <span class="label text-fainter">Private</span>
+            {:else if !project.live && !project.package}
+              <span class="label whitespace-nowrap text-fainter">Private</span>
+            {/if}
+            {#if project.package}
+              <a
+                {...external(project.package.link)}
+                class="label whitespace-nowrap text-dim no-underline hover:text-accent"
+              >
+                {project.package.name} &nearr;
+              </a>
             {/if}
           </span>
         </article>
@@ -71,7 +122,7 @@
     </section>
   {/each}
 
-  <section class="pt-16 pb-14">
+  <!-- <section class="pt-16 pb-14">
     <div class="flex flex-col gap-8 border-t border-rule pt-11 md:flex-row md:gap-16">
       <h2 class="shrink-0 pt-1 label text-fainter md:w-[13.5rem]">Not listed</h2>
       <p class="max-w-[35rem] text-[13px] leading-[1.8] text-faint">
@@ -80,5 +131,7 @@
         who did.
       </p>
     </div>
-  </section>
+  </section> -->
 </div>
+
+<DemoDialog src={demoOf?.demo ?? null} title={demoOf?.name ?? ""} onclose={() => (demoOf = null)} />

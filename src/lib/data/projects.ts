@@ -14,6 +14,13 @@ export type Project = {
   stats?: string[];
   /** Position on the home page, 1–4. Absent means projects page only. */
   featured?: number;
+  /**
+   * Worth a stranger's attention first. Kept separate from `featured`, which is
+   * capped at four by the home page's layout — this set can grow.
+   */
+  standout?: boolean;
+  /** A clip under static/demos, played in a dialog rather than downloaded. */
+  demo?: string;
 };
 
 export type Group = {
@@ -33,20 +40,57 @@ export const groups: Group[] = [
         href: null,
         stats: ["+20,000 players reached", "~1,300 weekly active users", "~6,000 games/day"],
         featured: 2,
+        standout: true,
         live: "https://us.posthog.com/shared/DiMu37UmgBfqhBXzv6_PNatYYp0aGA"
       },
       {
         name: "Falcon",
-        blurb:
-          "A search engine for tetromino stackers. Rust, three rewrites, each one faster than the last.",
+        blurb: "A blazingly fast search and evaulation engine for tetromino stackers.",
         tech: "Rust",
         href: "https://github.com/halp1/falcon-2"
       },
       {
         name: "Mosaic",
         blurb:
-          "Replay viewer with opener detection. Simulates the game to tell you what you actually played.",
-        tech: "SvelteKit · PIXI · WASM",
+          "(COMING SOON) A tool that analyzes TETR.IO replays and teaches you how to improve your gameplay.",
+        tech: "SvelteKit · Rust · WASM",
+        href: null
+      }
+    ]
+  },
+  {
+    name: "Products",
+    projects: [
+      {
+        name: "UIEats",
+        blurb:
+          "UIUC publishes its dining menus with unreliable allergen data. I scraped the system it's generated from and built a better app that you can trust when your life is at stake.",
+        tech: "SvelteKit · Docker",
+        href: "https://github.com/halp1/uieats",
+        stats: ["10+ life-threatening incidents avoided"],
+        featured: 3,
+        standout: true,
+        live: "https://uieats.joshliu.page"
+      },
+      {
+        name: "Zoron",
+        blurb:
+          "A replacement front end for the Aspen student information system. Built on a reverse-engineered API, and includes a day-by-day schedule view and grade push notifications. ",
+        tech: "SvelteKit · MongoDB",
+        href: null
+      },
+      {
+        name: "course-finder",
+        blurb:
+          "(COMING SOON) Watches UIUC course sections and pushes a notification the second a seat opens.",
+        tech: "SvelteKit · Web Push",
+        href: null
+      },
+      {
+        name: "LexYouth Manager",
+        blurb:
+          "Tutoring management for a local nonprofit, including scheduling and service-hour reporting.",
+        tech: "Next.js · MongoDB",
         href: null
       }
     ]
@@ -62,6 +106,7 @@ export const groups: Group[] = [
         href: "https://github.com/halp1/triangle",
         stats: ["33 stars", "200+ downloads/week"],
         featured: 1,
+        standout: true,
         live: "https://triangle.haelp.dev",
         package: {
           name: "NPM",
@@ -69,16 +114,30 @@ export const groups: Group[] = [
         }
       },
       {
+        name: "amber",
+        blurb: "An extremely powerful plugin-based JavaScript deobfuscator.",
+        tech: "Typescript",
+        href: "https://github.com/halp1/amber"
+      },
+      {
         name: "@haelp/auth",
-        blurb: "JWT authentication across subdomains, small enough to read in one sitting.",
+        blurb: "A tiny JWT authentication library that works across subdomains.",
         tech: "TypeScript",
-        href: "https://github.com/haelp-dev/auth"
+        href: "https://github.com/haelp-dev/auth",
+        package: {
+          name: "NPM",
+          link: "https://www.npmjs.com/package/@haelp/auth"
+        }
       },
       {
         name: "@haelp/joystick",
-        blurb: "Virtual joystick for browser games. Written years ago; people still install it.",
+        blurb: "A virtual joystick for browser games.",
         tech: "JavaScript",
-        href: "https://github.com/halp1/joystick"
+        href: "https://github.com/halp1/joystick",
+        package: {
+          name: "NPM",
+          link: "https://www.npmjs.com/package/@haelp/joystick"
+        }
       }
     ]
   },
@@ -88,72 +147,40 @@ export const groups: Group[] = [
       {
         name: "push-back",
         blurb:
-          "Pioneered Rust in the VEX V5RC robotics competition. Features fully custom asynchronous motion library and a hyper-optimized Monte Carlo Localization implementation.",
+          "Pioneered Rust in the VEX V5RC robotics competition. Features a fully custom asynchronous motion library and Monte Carlo Localization implementation.",
         tech: "Rust · vexide",
         href: "https://github.com/halp1/push-back",
+        demo: "/demos/auton-sample.mp4",
         stats: ["World Record: Autonomous Win Points"],
-        featured: 4
+        featured: 4,
+        standout: true
       },
       {
         name: "scoutr-vrc",
         blurb:
-          "Scouting app for VEX competitions — match and award notifications, video capture, live standings.",
+          "A scouting app for VEX competitions: match notifications, live standings, and a custom field controller.",
         tech: "React Native · Supabase",
         href: "https://github.com/halp1/scoutr-vrc"
       },
       {
         name: "vex-code-guide",
         blurb:
-          "What I worked out about robot localization, written down so other teams didn't have to.",
+          "A full guide to odometry and localization using Monte Carlo Localization that teaches both the concepts and the implementation.",
         tech: "Documentation",
         href: "https://github.com/halp1/vex-code-guide"
       },
       {
         name: "gif-pros",
-        blurb:
-          "GIF decoder for the VEX PROS runtime, with transparency. For putting animations on a robot screen.",
+        blurb: "A fork of theol0403/gif-pros updated to support PROS 4.2.1+ and LVGL 8.0+.",
         tech: "C++",
         href: "https://github.com/halp1/gif-pros"
       },
       {
         name: "pathgen",
-        blurb: "Bezier path planner for VEX autonomous routines.",
+        blurb:
+          "A bezier-based path planner and motion profile generator for VEX autonomous routines.",
         tech: "TypeScript",
         href: "https://github.com/halp1/pathgen"
-      }
-    ]
-  },
-  {
-    name: "Products",
-    projects: [
-      {
-        name: "UIEats",
-        blurb:
-          "UIUC publishes its dining menus with unreliable allergen data. I scraped the system it's generated from and built a better app that you can trust when your life is at stake.",
-        tech: "SvelteKit · Docker",
-        href: "https://github.com/halp1/uieats",
-				stats: ["10+ life-threatening incidents avoided"],
-        featured: 3,
-        live: "https://uieats.haelp.dev"
-      },
-      {
-        name: "Zoron",
-        blurb:
-          "A replacement front end for the Aspen student information system, built on a reverse-engineered API.",
-        tech: "SvelteKit · MongoDB",
-        href: null
-      },
-      {
-        name: "course-finder",
-        blurb: "Watches UIUC course sections and pushes a notification the second a seat opens.",
-        tech: "SvelteKit · Web Push",
-        href: null
-      },
-      {
-        name: "LexYouth Manager",
-        blurb: "Tutoring management for a local nonprofit — scheduling and service-hour reporting.",
-        tech: "Next.js · MongoDB",
-        href: null
       }
     ]
   },
@@ -162,30 +189,32 @@ export const groups: Group[] = [
     projects: [
       {
         name: "auth",
-        blurb: "An OpenID Connect provider. Every service below signs in through it.",
+        blurb: "A custom OpenID Connect provider. Every service below signs in through it.",
         tech: "SvelteKit · SQLite",
-        href: null,
+        href: "https://github.com/halp1/auth",
         live: "https://auth.haelp.dev"
       },
       {
         name: "cdn",
-        blurb: "Personal file host with Drive-backed storage.",
+        blurb: "An S3-based personal file host with Drive-backed storage.",
         tech: "SvelteKit · Docker",
-        href: null,
-        live: "https://cdn.haelp.dev"
+        href: "https://github.com/halp1/cdn",
+        live: "https://cdn.haelp.dev",
+        standout: true
       },
       {
         name: "link",
-        blurb: "URL shortener.",
-        tech: "SvelteKit · SQLite",
-        href: null,
+        blurb: "A simple URL shortener with analytics and IP tracking.",
+        tech: "SvelteKit",
+        href: "https://github.com/halp1/link",
         live: "https://link.haelp.dev"
       },
       {
         name: "secrets",
-        blurb: "Share a credential once, then it's gone.",
+        blurb: "An encrypted credential manager.",
         tech: "SvelteKit",
-        href: null
+        href: "https://github.com/halp1/secrets",
+        live: "https://secrets.haelp.dev"
       }
     ]
   },
@@ -195,54 +224,43 @@ export const groups: Group[] = [
       {
         name: "uiuc-icons",
         blurb:
-          "Chrome extension that gives each Canvas course its own favicon, so the tabs stop being identical.",
+          "A Chrome extension that allows you to set custom tab icons for .illinois.edu websites.",
         tech: "TypeScript",
         href: null,
         live: "https://secrets.haelp.dev"
       },
       {
-        name: "amber",
-        blurb: "Plugin-based JavaScript deobfuscator.",
-        tech: "JavaScript",
-        href: "https://github.com/halp1/amber"
-      },
-      {
         name: "flamewall",
-        blurb: "macOS menu-bar firewall — per-app network filtering through a system extension.",
+        blurb: "A macOS menu-bar firewall: per-app network filtering through a system extension.",
         tech: "Swift",
         href: null
       },
       {
         name: "muted",
-        blurb: "System-wide microphone mute in the menu bar.",
+        blurb:
+          "A system-wide microphone mute in the menu bar, turning the dictation key into a mute button.",
         tech: "Swift",
         href: null
       },
       {
-        name: "badgeify",
+        name: "badges",
         blurb: "Mirrors app unread badges into the macOS menu bar.",
         tech: "Swift",
-        href: null
+        href: "https://github.com/halp1/badges"
       },
       {
         name: "games",
-        blurb: "Small browser games, fully offline after first load.",
-        tech: "SvelteKit",
-        href: null,
+        blurb: "Small online games I've made.",
+        tech: "SvelteKit · Typescript",
+        href: "https://github.com/halp1/games",
         live: "https://games.haelp.dev"
       },
       {
         name: "tools",
-        blurb: "Bulk image viewer, scoreboard, counter. Things I needed once.",
-        tech: "SvelteKit",
-        href: null,
+        blurb: "Miscellaneous tools and utilities, ex. counters, image viewers.",
+        tech: "SvelteKit · Typescript",
+        href: "https://github.com/halp1/tools",
         live: "https://tools.haelp.dev"
-      },
-      {
-        name: "AoPS userscripts",
-        blurb: "Userscripts for Art of Problem Solving. 2023.",
-        tech: "JavaScript",
-        href: "https://github.com/halp1/AoPS-Scripts"
       }
     ]
   }

@@ -28,9 +28,9 @@
     >
       {site.name}
     </h1>
-    <p class="mt-5 max-w-[29rem] text-[14.5px] leading-[1.85] text-dim">
+    <p class="mt-5 max-w-[30rem] text-[14.5px] leading-[1.85] text-dim">
       {site.role}.<br />
-      I build embedded systems, maintain open-source packages, develop software to serve the communities
+      I build embedded systems, maintain open-source packages, and develop software to serve the communities
       I'm a part of.
     </p>
   </div>
@@ -81,9 +81,8 @@
           I also have a deep passion for robotics and writing embedded software. I spent four years
           on a VEX robotics team, and what I loved was that the code had to survive contact with a
           real robot in a dynamic environment. Embedded programming deals with the imperfect world
-          in a way the rest of CS doesn't. Sensors lie, motor stall, and batteries sag. That's what
-          makes embedded special: there's always room for improvement and innovation. There's always
-          a better way.
+          in a way the rest of CS doesn't. That's what makes embedded special: there's always room
+          for improvement and innovation. There's always a better way.
         </p>
       </div>
 
