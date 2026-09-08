@@ -54,7 +54,7 @@
     <div class="flex flex-col gap-12 md:flex-row md:gap-16">
       <div class="flex shrink-0 flex-col gap-6">
         <img
-          src="/joshua.jpg"
+          src="/joshua.jpeg"
           alt="Joshua Liu"
           width="200"
           height="200"
@@ -70,23 +70,19 @@
           I'm a first-year CS student at Illinois from Lexington, Massachusetts.
         </p>
         <p class="text-[14.5px] leading-[1.95] text-dim">
-          <!-- Most of what I build starts with wanting to know how something works. I reverse-engineered
-					TETR.IO's protocol and rebuilt its client from scratch, which turned into a library other
-					people now depend on. Then the harder question underneath it got interesting — what the
-					best available move actually is — and I&rsquo;ve rewritten a search engine three times
-					looking for the answer. -->
-          Everything I build starts with a single question: <u>"What if there was a better way?"</u> There
-          is an enormous amount of data in the world that is presented in a way that is inconvenient to
-          access and difficult to understand. Hundreds of systems are open for automation, but only if
-          you can learn to speak their language. The things I make are what close this gap between the
-          modern internet and everyday people.
+          Everything I build starts with a single question: <i>What if there is a better way?</i> There
+          is an enormous amount of data in the world that is inconvenient to access and difficult to understand.
+          Hundreds of systems are open for automation, but only if you can learn to speak their secret
+          language. The things I make are my answer to this question and are what close this gap between
+          the modern internet and everyday people.
         </p>
         <p class="text-[14.5px] leading-[1.95] text-dim">
           I also have a deep passion for robotics and writing embedded software. I spent four years
           on a VEX robotics team, and what I loved was that the code had to survive contact with a
           real robot in a dynamic environment. Embedded programming deals with the imperfect world
-          in a way the rest of CS doesn't. That's what makes embedded special: there's always room
-          for improvement and innovation. There's always a better way.
+          in a way the rest of CS doesn't. That's what makes embedded special: the code you write
+          has to be far more robust than a sandboxed app in a container, which leaves near-infinite
+          room for improvement. In embedded, there's always a better way.
         </p>
       </div>
 
