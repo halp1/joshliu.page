@@ -15,6 +15,7 @@
 
   $effect(() => {
     if (demo) {
+			video?.focus();
       dialog.showModal();
       // The click that opened this counts as the gesture, so sound is allowed.
       video?.play().catch(() => {
@@ -72,6 +73,7 @@
       controls
       playsinline
       preload="auto"
+      volume={0.25}
       aria-describedby="demo-caption"
       class="block aspect-video max-h-[76vh] w-full bg-black"
     >

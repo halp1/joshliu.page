@@ -29,9 +29,8 @@
         Projects
       </h1>
       <p class="max-w-[35rem] text-[14.5px] leading-[1.95] text-dim">
-        {projectCount} projects worth keeping, grouped by what they are rather than when I made them.
-        The starred ones are where I&rsquo;d start. Some are closed for now; a few of those will open
-        up, and where there&rsquo;s no link there&rsquo;s no public source yet.
+        {projectCount} of the best projects I've built. Projects are grouped by category, and starred projects are
+        my most advanced and impressive work.
       </p>
     </div>
   </section>

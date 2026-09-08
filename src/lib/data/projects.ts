@@ -92,7 +92,7 @@ export const groups: Group[] = [
         blurb:
           "A replacement front end for the Aspen student information system. Built on a reverse-engineered API, and includes a day-by-day schedule view and grade push notifications. ",
         tech: "SvelteKit · MongoDB",
-        href: null
+        href: "https://github.com/halp1/zoron"
       },
       {
         name: "course-finder",
