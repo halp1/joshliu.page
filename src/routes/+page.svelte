@@ -1,8 +1,12 @@
 <script lang="ts">
   import Terrain from "$lib/components/Terrain.svelte";
   import { site, currently, beyond, wentWrong } from "$lib/data/site";
-  import { featured } from "$lib/data/projects";
+  import { featured, type Project } from "$lib/data/projects";
+  import DemoDialog from "$lib/components/DemoDialog.svelte";
+  import DemoTrigger from "$lib/components/DemoTrigger.svelte";
   import { external } from "$lib";
+
+  let demoOf = $state<Project | null>(null);
 </script>
 
 <svelte:head>
@@ -126,6 +130,9 @@
               {/each}
             </dl>
           {/if}
+          {#if project.demo}
+            <DemoTrigger onclick={() => (demoOf = project)} />
+          {/if}
         </div>
 
         <div class="flex shrink-0 flex-col gap-2 md:w-[11.5rem] md:text-right">
@@ -227,3 +234,9 @@
     </div>
   </section>
 </div>
+
+<DemoDialog
+  demo={demoOf?.demo ?? null}
+  title={demoOf?.name ?? ""}
+  onclose={() => (demoOf = null)}
+/>

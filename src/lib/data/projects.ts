@@ -1,3 +1,14 @@
+export type Demo = {
+  /** Shown under the clip; says what you are actually looking at. */
+  caption: string;
+  /**
+   * Clips under static/demos, offered in order. VP9 goes first for the browsers
+   * that take it; Safari rejects VP9-in-MP4 on the codec string alone and falls
+   * through to the H.264 without downloading anything.
+   */
+  sources: { src: string; type: string }[];
+};
+
 export type Project = {
   name: string;
   blurb: string;
@@ -19,8 +30,7 @@ export type Project = {
    * capped at four by the home page's layout — this set can grow.
    */
   standout?: boolean;
-  /** A clip under static/demos, played in a dialog rather than downloaded. */
-  demo?: string;
+  demo?: Demo;
 };
 
 export type Group = {
@@ -39,6 +49,11 @@ export const groups: Group[] = [
         tech: "C++ · TypeScript",
         href: null,
         stats: ["+20,000 players reached", "~1,300 weekly active users", "~6,000 games/day"],
+        demo: {
+          caption: "The former TETR.IO World Champion (left) vs MochBot (right)",
+          // 720p is not a compromise here: the dialog is never wider than 928px.
+          sources: [{ src: "/demos/mochbot-vs-icly.mp4", type: 'video/mp4; codecs="avc1.640020"' }]
+        },
         featured: 2,
         standout: true,
         live: "https://us.posthog.com/shared/DiMu37UmgBfqhBXzv6_PNatYYp0aGA"
@@ -150,7 +165,13 @@ export const groups: Group[] = [
           "Pioneered Rust in the VEX V5RC robotics competition. Features a fully custom asynchronous motion library and Monte Carlo Localization implementation.",
         tech: "Rust · vexide",
         href: "https://github.com/halp1/push-back",
-        demo: "/demos/auton-sample.mp4",
+        demo: {
+          caption: "An autonomous routine at the VEX Robotics World Championship.",
+          sources: [
+            { src: "/demos/auton-sample.mp4", type: 'video/mp4; codecs="vp09.00.10.08"' },
+            { src: "/demos/auton-sample.h264.mp4", type: 'video/mp4; codecs="avc1.640032"' }
+          ]
+        },
         stats: ["World Record: Autonomous Win Points"],
         featured: 4,
         standout: true

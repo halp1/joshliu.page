@@ -2,6 +2,7 @@
   import { site } from "$lib/data/site";
   import { groups, projectCount, type Project } from "$lib/data/projects";
   import DemoDialog from "$lib/components/DemoDialog.svelte";
+  import DemoTrigger from "$lib/components/DemoTrigger.svelte";
   import { external } from "$lib";
 
   const title = `Projects — ${site.name}`;
@@ -70,22 +71,7 @@
           <div class="flex grow flex-col items-start gap-2.5">
             <p class="text-[13px] leading-[1.65] text-dim">{project.blurb}</p>
             {#if project.demo}
-              <button
-                type="button"
-                onclick={() => (demoOf = project)}
-                class="flex cursor-pointer items-center gap-2 border-0 bg-transparent p-0 label text-accent transition-opacity hover:opacity-70"
-              >
-                <svg
-                  width="9"
-                  height="9"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M6 3.5l14 8.5-14 8.5z" />
-                </svg>
-                See it in action
-              </button>
+              <DemoTrigger onclick={() => (demoOf = project)} />
             {/if}
           </div>
           <span class="shrink-0 label text-faint md:w-[14rem] md:text-right">{project.tech}</span>
@@ -134,4 +120,8 @@
   </section> -->
 </div>
 
-<DemoDialog src={demoOf?.demo ?? null} title={demoOf?.name ?? ""} onclose={() => (demoOf = null)} />
+<DemoDialog
+  demo={demoOf?.demo ?? null}
+  title={demoOf?.name ?? ""}
+  onclose={() => (demoOf = null)}
+/>
