@@ -86,7 +86,7 @@
         </p>
 
         <p class="text-[14.5px] leading-[1.95] text-dim">
-          I spent four years on a VEX robotics team, and what I loved was that the code had to
+          I also spent four years on a VEX robotics team, and what I loved was that the code had to
           survive contact with a real robot in a dynamic environment. Embedded programming deals
           with the imperfect world in a way the rest of CS doesn't. That's what makes embedded
           special: there's always a way to shave off another millisecond or make your system a bit
