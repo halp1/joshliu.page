@@ -67,22 +67,30 @@
 
       <div class="flex max-w-[35rem] flex-col gap-5">
         <p class="text-[14.5px] leading-[1.95] text-ink-2">
-          I'm a first-year CS student at Illinois from Lexington, Massachusetts.
+          I'm a first-year CS student at Illinois from Lexington, Massachusetts. Everything I build
+          starts with a single question: <i>What if there is a better way?</i>
         </p>
+        <!-- <p class="text-[14.5px] leading-[1.95] text-dim">
+          My background is in embedded systems and
+          robotics, including four years competing in VEX Robotics. Writing code for physical
+          hardware taught me that software doesn't live in an ideal sandbox: it has to survive
+          real-world latency, sensor noise, and mechanical wear. That bridge between the abstract
+          and the physical drives what I build: reliable firmware, reactive controls, and tools
+          that automate complex real-world workflows without breaking when conditions change.
+        </p> -->
         <p class="text-[14.5px] leading-[1.95] text-dim">
-          Everything I build starts with a single question: <i>What if there is a better way?</i> There
-          is an enormous amount of data in the world that is inconvenient to access and difficult to understand.
-          Hundreds of systems are open for automation, but only if you can learn to speak their secret
-          language. The things I make are my answer to this question and are what close this gap between
-          the modern internet and everyday people.
+          I first asked it seriously when I saw my high school classmates struggling to understand
+          their confusing schedules. Once I looked, I started noticing how many systems on the
+          internet run on interfaces nobody bothers to make usable. Now, I build services that
+          translate those systems into interfaces everyone can actually navigate.
         </p>
+
         <p class="text-[14.5px] leading-[1.95] text-dim">
-          I also have a deep passion for robotics and writing embedded software. I spent four years
-          on a VEX robotics team, and what I loved was that the code had to survive contact with a
-          real robot in a dynamic environment. Embedded programming deals with the imperfect world
-          in a way the rest of CS doesn't. That's what makes embedded special: the code you write
-          has to be far more robust than a sandboxed app in a container, which leaves near-infinite
-          room for improvement. In embedded, there's always a better way.
+          I spent four years on a VEX robotics team, and what I loved was that the code had to
+          survive contact with a real robot in a dynamic environment. Embedded programming deals
+          with the imperfect world in a way the rest of CS doesn't. That's what makes embedded
+          special: there's always a way to shave off another millisecond or make your system a bit
+          more reliable.
         </p>
       </div>
 

@@ -12,8 +12,8 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/joshua-a-liu/",
     instagram: "https://www.instagram.com/josh.liu__/"
   },
-  /** Set to the public path once the corrected PDF exists; the link hides while null. */
-  resume: null as string | null
+  /** Public path to the résumé PDF; the link hides while null. */
+  resume: "/joshua-liu-resume.pdf" as string | null
 } as const;
 
 export const currently = [
